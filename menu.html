@@ -41,14 +41,14 @@
                   <div class="modal-container">
                     <div class="modal-header">
                       <img src="https://static-testnet.unisat.io/content/e90147bafc2b1399c323c4d9160d6a8b5a824e1356b3869937c84cf225d3334bi0" class="nft-logo">
-                      <div class="close-button">
+                      <div class="close-button" id="close-button">
                         <i class="fas fa-times" style="font-size : 40px;"></i>
                       </div>
                     </div>
                     <div class="modal-content">
                       <div class="button-group">
                         <div class="menu-item active">
-                            <button class="modal-button" id="show-stickers">
+                            <button class="modal-button active" id="show-stickers">
                                 <i class="fas fa-layer-group fa-2x nft-icon" style="color: white;"></i>
                             </button>
                             <span class="text">Stickers</span>
@@ -257,6 +257,7 @@
               background : #242729;
               height : 100%;
               padding : 10px;
+              position : relative;
             }
             .modal.active {
                 display: block;
@@ -271,7 +272,7 @@
             .modal-content {
                 position: relative;
                 width: 100%;
-                max-width: 646px;
+                max-width: 400px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -280,7 +281,6 @@
                 z-index: 1000;
                 border-radius : 10px;
                 height : 70px;
-                width : 320px;
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -299,7 +299,7 @@
               height: 25px;
               width: 25px;
               position: absolute;
-              top: 70px;
+              top: 50px;
               left: 0;
               color : white;
               left: auto;
@@ -317,7 +317,8 @@
                 width : 70px;
                 position : relative;
             }
-           .modal-button.active .nft-icon {
+            
+            .modal-button.active .nft-icon {
               transform: translateY(-32px);
               transition: transform 0.3s ease; /* Smooth transition */
             }
@@ -330,18 +331,18 @@
             }
 
             .menu-item .text {
-              position: absolute;
-              color: #fff;
-              font-weight: 400;
-              font-size: 0.75em;
-              letter-spacing: 0.05em;
-              opacity: 0;
-              transform: translateY(20px);
-              transition: 0.5s;
-              top : 10px;
-            } 
+              position : absolute;
+              color : #fff;
+              font-weight : 400;
+              font-size : 0.75em;
+              letter-spacing : 0.05em;
+              opacity : 0;
+              transform : translateY(20px);
+              transition : 0.5s;
+              top : 22px;
+            }
 
-            .modal-button.active .text {
+            .modal-button.active ~ .text {
               opacity: 1;
               transform: translateY(10px);
             }
@@ -400,14 +401,14 @@
                 transform: scale(1.1);
             }
             .button-icon {
-                width: 35px;
-                height: 35px;
+                width: 50px;
+                height: 50px;
                 border-radius: 50%;
                 object-fit: cover;
             }
             .menu-item p {
                 margin-top: 10px;
-                font-size: 14px;
+                font-size: 16px;
                 color: #ffff;
             }
             .center-menu {
@@ -417,13 +418,17 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 background-color: rgba(0, 0, 0, 0.8);
-                padding: 20px;
+                padding: 40px;
                 border-radius: 10px;
                 z-index: 4;
                 box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+                width: 300px;
+                height: 210px;
+                justify-content: center;
+                align-items: center;
             }
             .center-menu.active {
-                display: block;
+                display: flex;
             }
             .center-menu-content {
                 text-align: center;
@@ -461,28 +466,75 @@
               background-color: rgba(0, 255, 204, 0.1);
             }
 
-            .modal-button:nth-of-type(1).active ~ .indicator {
-              transform: translateX(calc(70px * 0));
-            }
 
-            .modal-button:nth-of-type(2).active ~ .indicator {
-              transform: translateX(calc(70px * 1));
-            }
-
-            .modal-button:nth-of-type(3).active ~ .indicator {
-              transform: translateX(calc(70px * 2));
+            @media only screen and (max-width: 768px) {
+                .modal-content {
+                    width : 90%;
+                }
             }
         `;
         
-        const list = document.querySelectorAll(".modal-button");
-        function activeLink() {
-          list.forEach((item) => item.classList.remove("active"));
-          this.classList.add("active");
-          //
-          
+        const buttons = document.querySelectorAll('.modal-button');
+        const indicator = document.querySelector('.indicator');
+        const menus = document.querySelectorAll('.menu-item');
+
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                // Remove 'active' class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add 'active' class to the clicked button
+                this.classList.add('active');
+                
+                // Move the indicator
+                indicator.style.transform = `translateX(calc(70px * ${index}))`;
+                 
+                // Get the ID of the clicked button
+                const buttonId = this.id;
+                
+                setTimeout(() => {
+                    handleSelectedMenu(buttonId);
+                } , 500);
+            });
+        });
+
+
+        function handleSelectedMenu (buttonId) {
+            switch (buttonId) {
+                    case 'show-stickers':
+                        // Action for button1
+                        console.log('Button 1 clicked');
+                        centerMenuStickers.classList.add('active');
+                        modal.classList.remove('active');
+                        break;
+                    case 'show-background':
+                        // Action for button2
+                        console.log('Button 2 clicked');
+                        centerMenuBackground.classList.add('active');
+                        modal.classList.remove('active');
+                        break;
+                    case 'show-download':
+                        // Action for button3
+                        console.log('Button 3 clicked');
+                        centerMenuDownload.style.display = 'block';
+                        modal.classList.remove('active');
+                        break;
+                    default:
+                        // Action for any other cases (optional)
+                        console.log('Unknown button clicked');
+                        break;
+                }
         }
-        list.forEach((item) => item.addEventListener("click", activeLink));
-  
+
+        
+
+        document.getElementById('close-button').addEventListener('click', function () {
+            modal.classList.remove('active');
+            menu.classList.remove('active');
+            toggleButton.style.pointerEvents = 'auto';
+            isMenuOpen = false;
+        });
+
 
         document.head.appendChild(style);
 
@@ -597,9 +649,9 @@
                     };
                 }
             });
-
             centerMenuDownload.style.display = 'none';
             toggleButton.style.pointerEvents = 'auto';
+            isMenuOpen = false;
       }
   }
   </script>
