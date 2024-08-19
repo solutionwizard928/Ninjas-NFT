@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body onload="createInteractiveMenu()"></body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+     function createInteractiveMenu() {
+        document.body.innerHTML = `
+            <div class="main">
+                <div class="img-wrap" id="img-wrap">
+                    <div id="background-square"></div>
+                    <img id="image1" src="https://static-testnet.unisat.io/content/c50ddaad5ceff6bf3b0895bc84e69d4e5ab2a0a5c525a820fff771998e63cb52i0" style="display: block;" />
+                    <img id="image2" src="https://static-testnet.unisat.io/content/75866642f189c8a7096c02cf84a6dadbbffedbb7e693851c0a55c44d0dc260d6i0" style="display: none;" />
+                    <img id="image3" src="https://static-testnet.unisat.io/content/9c33a0687928d7405b39479746a1c3351b3b03836c3457c1823a81cb4d5e9063i0" style="display: none;" />
+                    <img id="image4" src="https://static-testnet.unisat.io/content/3893324778d790863a094718fa5feef5ffb26a05888cbeacf2a5acdea159c08ai0" style="display: none;" />
+                    <div class="menu" id="menu">
+                        <button class="toggle-button" id="toggle-button">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal" id="modal">
+                  <div class="modal-container">
+                    <div class="modal-header">
+                      <img src="https://static-testnet.unisat.io/content/e90147bafc2b1399c323c4d9160d6a8b5a824e1356b3869937c84cf225d3334bi0" class="nft-logo">
+                      <div class="close-button">
+                        <i class="fas fa-times" style="font-size : 40px;"></i>
+                      </div>
+                    </div>
+                    <div class="modal-content">
+                      <div class="button-group">
+                        <div class="menu-item active">
+                            <button class="modal-button" id="show-stickers">
+                                <i class="fas fa-layer-group fa-2x nft-icon" style="color: white;"></i>
+                            </button>
+                            <span class="text">Stickers</span>
+                        </div>
+                        <div class="menu-item">
+                            <button class="modal-button" id="show-background">
+                                <i class="fas fa-paint-brush fa-2x nft-icon" style="color: white;"></i>
+                            </button>
+                            <span class="text">Background</span>
+                        </div>
+                        <div class="menu-item download-item">
+                            <button class="modal-button" id="show-download">
+                                <i class="fas fa-expand fa-2x nft-icon" style="color: white;"></i>
+                            </button>
+                            <span class="text">Resize</span>
+                        </div>
+                        <div class="indicator" id="indicator">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="center-menu" id="center-menu-stickers">
+                <div class="button-group">
+                    <div class="menu-item">
+                        <button class="center-menu-button" id="sticker1">
+                            <img src="https://static-testnet.unisat.io/content/e90147bafc2b1399c323c4d9160d6a8b5a824e1356b3869937c84cf225d3334bi0" class="button-icon" />
+                        </button>
+                        <p>Love</p>
+                    </div>
+                    <div class="menu-item">
+                        <button class="center-menu-button" id="sticker2">
+                            <img src="https://static-testnet.unisat.io/content/e90147bafc2b1399c323c4d9160d6a8b5a824e1356b3869937c84cf225d3334bi0" class="button-icon" />
+                        </button>
+                        <p>GM</p>
+                    </div>
+                    <div class="menu-item">
+                        <button class="center-menu-button" id="sticker3">
+                            <img src="https://static-testnet.unisat.io/content/e90147bafc2b1399c323c4d9160d6a8b5a824e1356b3869937c84cf225d3334bi0" class="button-icon" />
+                        </button>
+                        <p>Yes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-menu" id="center-menu-background">
+                <div class="button-group">
+                    <div class="menu-item">
+                        <button class="center-menu-button" id="bg-orange" style="background-color: #ff5600;">
+                        </button>
+                        <p>Orange</p>
+                    </div>
+                    <div class="menu-item">
+                        <button class="center-menu-button" id="bg-red" style="background-color: #f50000;">
+                        </button>
+                        <p>Red</p>
+                    </div>
+                    <div class="menu-item">
+                        <button class="center-menu-button" id="bg-gray" style="background-color: #ededed;">
+                        </button>
+                        <p>Gray</p>
+                    </div>
+                </div>
+            </div>
+            <div class="center-menu" id="center-menu-download" style="display: none;">
+                <div class="center-menu-content">
+                    <input type="number" id="canvas-size" value="2000" min="2000" max="10000" step="1000">
+                    <p style="color: #00ffcc;">Resize</p>
+                    <button class="center-menu-button" id="confirm-download" style="margin-top: 20px; color: #00ffcc;">Download</button>
+                </div>
+            </div>
+        `;
+
+        const modal = document.getElementById('modal');
+        const centerMenuStickers = document.getElementById('center-menu-stickers');
+        const centerMenuBackground = document.getElementById('center-menu-background');
+        const centerMenuDownload = document.getElementById('center-menu-download');
+        const downloadItem = document.querySelector('.download-item');
+        const backgroundSquare = document.getElementById('background-square');
+        const image1 = document.getElementById('image1');
+        const image2 = document.getElementById('image2');
+        const image3 = document.getElementById('image3');
+        const image4 = document.getElementById('image4');
+        const menu = document.getElementById('menu');
+        const toggleButton = document.getElementById('toggle-button');
+        const images = { image1, image2, image3, image4 };
+        let currentImage = null;
+        let isMenuOpen = false;
+       
+
+        function isInsidePlatform() {
+            return window.self !== window.top;
+        }
+
+        function updateDownloadVisibility() {
+            if (isInsidePlatform()) {
+                downloadItem.style.display = "none";
+            } else {
+                downloadItem.style.display = "flex";
+            }
+        }
+
+        updateDownloadVisibility();
+
+        const style = document.createElement('style');
+        style.textContent = `
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: "Poppins", sans-serif;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #0d0d0d;
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                overflow: hidden;
+            }
+            .main {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .img-wrap {
+                position: relative;
+                width: 100%; 
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #background-square {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #ff5600;
+                z-index: 0;
+                display: block;
+            }
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                z-index: 1;
+            }
+            .menu {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 3;
+                opacity: 1;
+                transition: opacity 0.3s ease;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-start;
+            }
+            .toggle-button {
+                background-color: transparent;
+                color: black;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                outline: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+            }
+            .bar {
+                width: 20px;
+                height: 3px;
+                background-color: black;
+                margin: 3px;
+                border-radius: 2px;
+            }
+            .modal {
+                background: #1e1e1e;
+                image-rendering: pixelated;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2000;
+                display: none;
+                padding: 20px;
+                background-size: contain;
+                overflow: auto;
+                
+            }
+            .modal-container {
+              background : #242729;
+              height : 100%;
+              padding : 10px;
+            }
+            .modal.active {
+                display: block;
+            }
+            .modal-header {
+              display : flex;
+              justify-content : center;
+              padding-top : 20px;
+              padding-bottom : 15px;
+              border-bottom : 1px solid #3d4347;
+            }
+            .modal-content {
+                position: relative;
+                width: 100%;
+                max-width: 646px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(45deg, #2196f3, #e91e63);
+                margin: auto;
+                z-index: 1000;
+                border-radius : 10px;
+                height : 70px;
+                width : 320px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            img.nft-logo {
+              width: 65px;
+              height: 65px;
+              position : relative;
+            }
+            div.close-button {
+              margin-right: auto;
+              transform: rotate(90deg);
+              cursor: pointer;
+              opacity: 0.5;
+              height: 25px;
+              width: 25px;
+              position: absolute;
+              top: 70px;
+              left: 0;
+              color : white;
+              left: auto;
+              right: 30px;
+            }
+            .button-group {
+                display: flex;
+                align-items: center;
+                width : 210px;
+            }
+            .menu-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width : 70px;
+                position : relative;
+            }
+           .modal-button.active .nft-icon {
+              transform: translateY(-32px);
+              transition: transform 0.3s ease; /* Smooth transition */
+            }
+
+            /* Ensure the default state has no transformation */
+            .nft-icon {
+                transition: transform 0.3s ease;
+                z-index : 10;
+                position : absolute;
+            }
+
+            .menu-item .text {
+              position: absolute;
+              color: #fff;
+              font-weight: 400;
+              font-size: 0.75em;
+              letter-spacing: 0.05em;
+              opacity: 0;
+              transform: translateY(20px);
+              transition: 0.5s;
+              top : 10px;
+            } 
+
+            .modal-button.active .text {
+              opacity: 1;
+              transform: translateY(10px);
+            }
+            
+            .indicator {
+              position: absolute;
+              top: -50%;
+              width: 70px;
+              height: 70px;
+              background: linear-gradient(45deg, #2196f3, #e91e63);
+              border: 6px solid #242729;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              transition: 0.5s;
+              z-index : -1;
+            }
+            .indicator::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: -22px;
+              width: 20px;
+              height: 20px;
+              background: transparent;
+              border-top-right-radius: 20px;
+              box-shadow: 1px -10px 0 #242729;
+            }
+            .indicator::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: -22px;
+              width: 20px;
+              height: 20px;
+              background: transparent;
+              border-top-left-radius: 20px;
+              box-shadow: -1px -10px 0 #242729;
+            }
+            .modal-button,
+            .center-menu-button {
+                background-color: transparent;
+                border: none;
+                padding: 25px;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .modal-button:hover,
+            .center-menu-button:hover {
+                background-color: rgba(0, 255, 204, 0.1);
+                transform: scale(1.1);
+            }
+            .button-icon {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .menu-item p {
+                margin-top: 10px;
+                font-size: 14px;
+                color: #ffff;
+            }
+            .center-menu {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(0, 0, 0, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                z-index: 4;
+                box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+            }
+            .center-menu.active {
+                display: block;
+            }
+            .center-menu-content {
+                text-align: center;
+                color: #00ffcc;
+                text-shadow: 0 0 5px #00ffcc;
+            }
+            .center-menu-button:hover {
+                background-color: rgba(0, 255, 204, 0.1);
+                box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
+            }
+            #canvas-size {
+                width: 100px;
+                font-size: 16px;
+                padding: 10px;
+                text-align: center;
+                border: 2px solid #00ffcc;
+                border-radius: 5px;
+                color: #00ffcc;
+                background-color: transparent;
+                margin-bottom: 20px;
+            }
+            #confirm-download {
+                margin-top: 20px;
+                color: #00ffcc;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border: 2px solid #00ffcc;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            #confirm-download:hover {
+              background-color: rgba(0, 255, 204, 0.1);
+            }
+
+            .modal-button:nth-of-type(1).active ~ .indicator {
+              transform: translateX(calc(70px * 0));
+            }
+
+            .modal-button:nth-of-type(2).active ~ .indicator {
+              transform: translateX(calc(70px * 1));
+            }
+
+            .modal-button:nth-of-type(3).active ~ .indicator {
+              transform: translateX(calc(70px * 2));
+            }
+        `;
+        
+        const list = document.querySelectorAll(".modal-button");
+        function activeLink() {
+          list.forEach((item) => item.classList.remove("active"));
+          this.classList.add("active");
+          //
+          
+        }
+        list.forEach((item) => item.addEventListener("click", activeLink));
+  
+
+        document.head.appendChild(style);
+
+        toggleButton.addEventListener('mouseenter', function () {
+            if (!isMenuOpen) {
+                menu.classList.add('active');
+            }
+        });
+
+        menu.addEventListener('mouseleave', function () {
+            if (!isMenuOpen) {
+                menu.classList.remove('active');
+            }
+        });
+
+        toggleButton.addEventListener('click', function () {
+            if (!isMenuOpen) {
+                modal.classList.add('active');
+                toggleButton.style.pointerEvents = 'none';
+                isMenuOpen = true;
+            }
+        });
+
+        function toggleImage(imageId) {
+            if (currentImage === imageId) {
+                images[currentImage].style.display = 'none';
+                currentImage = null;
+            } else {
+                if (currentImage) {
+                    images[currentImage].style.display = 'none';
+                }
+                images[imageId].style.display = 'block';
+                currentImage = imageId;
+            }
+
+            centerMenuStickers.classList.remove('active');
+            isMenuOpen = false;
+            toggleButton.style.pointerEvents = 'auto';
+        }
+
+        document.getElementById('sticker1').addEventListener('click', function () {
+            toggleImage('image2');
+        });
+
+        document.getElementById('sticker2').addEventListener('click', function () {
+            toggleImage('image3');
+        });
+
+        document.getElementById('sticker3').addEventListener('click', function () {
+            toggleImage('image4');
+        });
+
+        function changeBackgroundColor(color) {
+            backgroundSquare.style.backgroundColor = color;
+            backgroundSquare.style.display = 'block';
+            centerMenuBackground.classList.remove('active');
+            isMenuOpen = false;
+            toggleButton.style.pointerEvents = 'auto';
+        }
+
+        document.getElementById('bg-orange').addEventListener('click', function () {
+            changeBackgroundColor('#ff5600');
+        });
+
+        document.getElementById('bg-red').addEventListener('click', function () {
+            changeBackgroundColor('#f50000');
+        });
+
+        document.getElementById('bg-gray').addEventListener('click', function () {
+            changeBackgroundColor('#ededed');
+        });
+
+        document.getElementById('confirm-download').addEventListener('click', function () {
+            const size = parseInt(document.getElementById('canvas-size').value);
+            if (size >= 2000 && size <= 10000) {
+                downloadImage(size);
+            } else {
+                alert("Escolha um tamanho entre 2000x2000 e 10000x10000.");
+            }
+        });
+
+        function downloadImage(size) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const imgWrap = document.querySelector('.img-wrap');
+
+            canvas.width = size;
+            canvas.height = size;
+
+            ctx.fillStyle = getComputedStyle(document.getElementById('background-square')).backgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const images = imgWrap.querySelectorAll('img');
+            let imagesToLoad = Array.from(images).filter(img => img.style.display !== 'none').length;
+            let imagesLoaded = 0;
+
+            images.forEach(img => {
+                if (img.style.display !== 'none') {
+                    const imageElement = new Image();
+                    imageElement.crossOrigin = 'Anonymous';
+                    imageElement.src = img.src;
+                    imageElement.onload = function() {
+                        ctx.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
+                        imagesLoaded++;
+
+                        if (imagesLoaded === imagesToLoad) {
+                            const link = document.createElement('a');
+                            link.download = `custom-image-${size}x${size}.png`;
+                            link.href = canvas.toDataURL('image/png');
+                            link.click();
+                        }
+                    };
+                }
+            });
+
+            centerMenuDownload.style.display = 'none';
+            toggleButton.style.pointerEvents = 'auto';
+      }
+  }
+  </script>
+  
+</html>
