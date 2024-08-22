@@ -28,7 +28,7 @@
                 <div class="modal" id="modal">
                   <div class="modal-container">
                     <div class="modal-content">
-                      <div class="button-group">
+                      <div class="button-group basic-group">
                         <div class="menu-item active">
                             <button class="modal-button active" id="show-stickers">
                                 <svg class="svg-inline--fa fa-layer-group fa-w-16 nft-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="layer-group" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32">
@@ -81,7 +81,7 @@
                         </button>
                         <p>GM</p>
                     </div>
-                    <div class="menu-item download-item">
+                    <div class="menu-item">
                         <button class="sticker-modal-button" id="sticker3">
                             <img src="https://static-testnet.unisat.io/content/e90147bafc2b1399c323c4d9160d6a8b5a824e1356b3869937c84cf225d3334bi0" class="nft-icon" style="width:45px; height:45px" />
                         </button>
@@ -100,17 +100,20 @@
                 <div class="modal-content">
                   <div class="button-group">
                     <div class="menu-item active">
-                        <button class="color-modal-button active" id="bg-orange" style="padding : 20px; background-color: #ff5600;">
+                        <button class="color-modal-button active" id="bg-orange" style="padding : 0px;">
+                          <div class="orange-color">
                         </button>
                         <p>Orange</p>
                     </div>
                     <div class="menu-item">
-                        <button class="color-modal-button" id="bg-red" style="padding : 20px; background-color: #f50000;">
+                        <button class="color-modal-button" id="bg-red" style="padding : 0px;">
+                          <div class="red-color">
                         </button>
                         <p>Red</p>
                     </div>
-                    <div class="menu-item download-item">
-                       <button class="color-modal-button" id="bg-gray" style="padding : 20px; background-color: #ededed;">
+                    <div class="menu-item">
+                       <button class="color-modal-button" id="bg-gray" style="padding : 0px;">
+                          <div class="gray-color">
                         </button>
                         <p>Gray</p>
                     </div>
@@ -340,6 +343,24 @@
               transition: transform 0.3s ease; /* Smooth transition */
             }
 
+            .orange-color {
+              padding: 20px;
+              background-color: #f50000;
+              border-radius: 50%;
+            }
+
+            .red-color {
+              padding: 20px;
+              background-color: #ff5600;
+              border-radius: 50%;
+            }
+
+            .gray-color {
+              padding: 20px;
+              background-color: #ededed;
+              border-radius: 50%;
+            }
+
             /* Ensure the default state has no transformation */
             .nft-icon {
                 transition: transform 0.3s ease;
@@ -423,7 +444,6 @@
             sticker-modal-button:hover,
             .color-modal-button:hover {
                 background-color: rgba(0, 255, 204, 0.1);
-                transform: scale(1.1);
             }
             .button-icon {
                 width: 50px;
@@ -495,6 +515,12 @@
                 .modal-content {
                     width : 90%;
                 }
+                .download-item {
+                  display : none !important;
+                }
+                .basic-group {
+                  width : 140px;
+                }
             }
         `;
 
@@ -556,7 +582,7 @@
           const buttonId = this.id;
           setTimeout(() => {
             handleSelectedMenu(buttonId);
-          }, 500);
+          }, 800);
          
         });
       });
