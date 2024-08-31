@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Font Awesome CDN -->
+  </head>
+  <body onload="createInteractiveMenu()"></body>
+  <script>
+    function createInteractiveMenu() {
+      document.body.innerHTML = `
+  <div class="main">
+      <div class="img-wrap" id="img-wrap">
+          <div id="background-square"></div>
+          <img id="image2" src="https://static-testnet.unisat.io/content/64862d6dbbe7303ff7a978848f2c4e8f0f03773cddeb1c40a81a9b39fe7adf8di0" style="display: none;" />
+          <img id="image3" src="https://static-testnet.unisat.io/content/33a343c21dbd0da76149626bae9f99036f29eb986fe93dd3fc9779a017cefccci0" style="display: none;" />
+          <img id="image4" src="https://static-testnet.unisat.io/content/8ee4336638c4f866cfdd17ba8a338313fbf5e5120e2e5aee8d87083fa30ec076i0" style="display: none;" />
+          <img id="image5" src="https://static-testnet.unisat.io/content/d9b64380191a9a1ccafa58c05bcbaf02462d9ce360ccec42a549dda81edec25fi0" style="display: none;" />
+          <img id="image6" src="https://static-testnet.unisat.io/content/df6a24f71ff1d010bed8a77ea7bdf41efdc126402b604b7ad3abebae0098719bi0" style="display: none;" />
+          <div class="menu" id="menu">
+              <button class="toggle-button" id="toggle-button">
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+              </button>
+          </div>
+      </div>
+      <div class="modal" id="modal">
+        <div class="modal-container">
+          <div class="modal-content">
+            <div class="button-group basic-group">
+              <div class="menu-item active">
+                  <button class="modal-button active" id="show-stickers">
+                      <svg class="svg-inline--fa fa-layer-group fa-w-16 nft-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="layer-group" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32">
+                          <path fill="white" d="M12.41 148.19l224 80c3.47 1.23 7.09 1.84 10.59 1.84s7.12-.61 10.59-1.84l224-80c9.25-3.31 15.41-12.08 15.41-21.83s-6.16-18.52-15.41-21.83l-224-80c-6.7-2.39-14.48-2.39-21.18 0l-224 80C3.16 107.84 0 115.85 0 124.8s3.16 16.98 12.41 21.83zM500.12 268.98l-65.19-23.3c-2.02-1.19-4.4-1.84-6.88-1.84-4.63 0-9.06 1.85-12.31 5.16L256 366.43 96.25 249c-3.25-3.31-7.69-5.16-12.31-5.16-2.48 0-4.86.66-6.88 1.84l-65.19 23.3C3.16 273.29 0 281.3 0 290.25s3.16 16.98 12.41 21.83l224 80c3.47 1.23 7.09 1.84 10.59 1.84s7.12-.61 10.59-1.84l224-80c9.25-3.31 15.41-12.08 15.41-21.83s-6.16-18.52-15.41-21.83zM500.12 397.8l-65.19-23.3c-2.02-1.19-4.4-1.84-6.88-1.84-4.63 0-9.06 1.85-12.31 5.16L256 495.24 96.25 378.82c-3.25-3.31-7.69-5.16-12.31-5.16-2.48 0-4.86.66-6.88 1.84l-65.19 23.3C3.16 402.11 0 410.12 0 419.07s3.16 16.98 12.41 21.83l224 80c3.47 1.23 7.09 1.84 10.59 1.84s7.12-.61 10.59-1.84l224-80c9.25-3.31 15.41-12.08 15.41-21.83s-6.16-18.52-15.41-21.83z"></path>
+                      </svg>
+                  </button>
+                  <span class="text">Stickers</span>
+              </div>
+              <div class="menu-item">
+                  <button class="modal-button" id="show-background">
+                     <svg class="nft-icon" fill="#ffff" height="32" width="32" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 458.178 458.178" xml:space="preserve">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier"> <g> <path d="M130.415,277.741C95.083,313.074,45.038,324.723,0,312.697c5.918,22.164,17.568,43.116,34.956,60.504 c52.721,52.721,138.198,52.721,190.919,0c26.361-26.36,26.36-69.099,0-95.459C199.514,251.38,156.776,251.38,130.415,277.741z"></path> 
+                                  <path d="M212.771,234.276c12.728,4.827,24.403,12.338,34.317,22.252c10.077,10.077,17.456,21.838,22.19,34.378l53.47-53.47 l-56.568-56.569C245.886,201.161,226.908,220.139,212.771,234.276z"></path> <path d="M446.462,57.153c-15.621-15.621-40.948-15.621-56.568,0c-5.887,5.887-54.496,54.496-102.501,102.501l56.568,56.569 l102.501-102.501C462.083,98.101,462.083,72.774,446.462,57.153z">
+                                  </path> 
+                              </g>
+                          </g>
+                      </svg>
+                  </button>
+                  <span class="text">Background</span>
+              </div>
+              <div class="menu-item download-item">
+                  <button class="modal-button" id="show-download">
+                      <svg class="nft-icon" fill="#ffff" height="32" width="32" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 121.93" style="enable-background:new 0 0 122.88 121.93" xml:space="preserve"><g><path d="M8.33,0.02h29.41v20.6H20.36v80.7h82.1V84.79h20.36v37.14H0V0.02H8.33L8.33,0.02z M122.88,0H53.3l23.74,23.18l-33.51,33.5 l21.22,21.22L98.26,44.4l24.62,24.11V0L122.88,0z"/></g></svg>
+                  </button>
+                  <span class="text">Resize</span>
+              </div>
+              <div class="indicator" id="indicator">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="modal" id="center-menu-stickers">
+    <div class="modal-container">
+      <div class="modal-content stickers-modal-content">
+        <div class="stickers-button-group">
+          <div class="stickers-menu-item active">
+              <button class="sticker-modal-button active" id="sticker1">
+                  <img src="https://static-testnet.unisat.io/content/9fcefb0e034f999ae72c07d3212419e3232ce5a620ed48ac24f3917958dae014i0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>GM</p>
+          </div>
+          <div class="stickers-menu-item">
+              <button class="sticker-modal-button" id="sticker2">
+                  <img src="https://static-testnet.unisat.io/content/e93f56ac08517ce39325ea40cc4a8fe2e7d6695276175cd42dcb5468550575d2i0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>Yes</p>
+          </div>
+          <div class="stickers-menu-item">
+              <button class="sticker-modal-button" id="sticker3">
+                  <img src="https://static-testnet.unisat.io/content/85e2531bb95ecc22f242db595dea8f34d314096ce460df876f70eeee4e3608a9i0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>No</p>
+          </div>
+          <div class="stickers-menu-item">
+              <button class="sticker-modal-button" id="sticker4">
+                  <img src="https://static-testnet.unisat.io/content/728e8233f74cf886a98d9d35b9d770784ebd37303d7cd88b99c04496e325e979i0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>Wen</p>
+          </div>
+          <div class="stickers-menu-item">
+              <button class="sticker-modal-button" id="sticker5">
+                  <img src="https://static-testnet.unisat.io/content/b0856cf7940b17144ca60e63d1a5bdb10c9c527a4c9c57e927fa48fd90f7c97ai0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>Fud</p>
+          </div>
+          <div class="stickers-menu-item">
+              <button class="sticker-modal-button" id="sticker6">
+                  <img src="https://static-testnet.unisat.io/content/b0f19a51c42ad924dc74cabb6446ac6b87ede007cfc10df955c64862558311ddi0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>Micro</p>
+          </div>
+          <div class="stickers-menu-item">
+              <button class="sticker-modal-button" id="sticker7">
+                  <img src="https://static-testnet.unisat.io/content/6fab35a77b4d37e8f10104084e675e1bd6a83d7da864a3a630a9c7dbeca7bcfbi0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>Heart</p>
+          </div>
+          <div class="stickers-menu-item">
+              <button class="sticker-modal-button" id="sticker8">
+                  <img src="https://static-testnet.unisat.io/content/9fcefb0e034f999ae72c07d3212419e3232ce5a620ed48ac24f3917958dae014i0" class="stickers-nft-icon" style="width:45px; height:45px" />
+              </button>
+              <p>GN</p>
+          </div>
+          <div class="indicator" id="sticker_indicator">
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="center-menu-background">
+    <div class="modal-container">
+      <div class="modal-content color-modal-content">
+        <div class="color-button-group">
+          <div class="color-menu-item active">
+              <button class="color-modal-button active" id="bg-orange" style="padding : 0px;">
+                <div class="orange-color">
+              </button>
+              <p>Orange</p>
+          </div>
+          <div class="color-menu-item">
+              <button class="color-modal-button" id="bg-red" style="padding : 0px;">
+                <div class="red-color">
+              </button>
+              <p>Red</p>
+          </div>
+          <div class="color-menu-item">
+             <button class="color-modal-button" id="bg-gray" style="padding : 0px;">
+                <div class="gray-color">
+              </button>
+              <p>Gray</p>
+          </div>
+          <div class="color-menu-item">
+             <button class="color-modal-button" id="bg-pink" style="padding : 0px;">
+                <div class="pink-color">
+              </button>
+              <p>Pink</p>
+          </div>
+          <div class="color-menu-item">
+             <button class="color-modal-button" id="bg-yellow" style="padding : 0px;">
+                <div class="yellow-color">
+              </button>
+              <p>Yellow</p>
+          </div>
+          <div class="color-menu-item">
+             <button class="color-modal-button" id="bg-blue" style="padding : 0px;">
+                <div class="blue-color">
+              </button>
+              <p>Blue</p>
+          </div>
+          <div class="color-menu-item">
+             <button class="color-modal-button" id="bg-green" style="padding : 0px;">
+                <div class="green-color">
+              </button>
+              <p>Green</p>
+          </div>
+          <div class="color-menu-item">
+             <button class="color-modal-button" id="bg-black" style="padding : 0px;">
+                <div class="black-color">
+              </button>
+              <p>Black</p>
+          </div>
+          <div class="indicator" id="color_indicator">
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="center-menu-download">
+    <div class="modal-container">
+      <div class="center-menu">
+        <div class="center-menu-content">
+            <input type="number" id="canvas-size" value="2000" min="2000" max="10000" step="1000">
+            <p style="color: #00ffcc;">Resize</p>
+            <button id="confirm-download" style="margin-top: 20px; color: #00ffcc;">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+
+      const modal = document.getElementById("modal");
+      const centerMenuStickers = document.getElementById(
+        "center-menu-stickers"
+      );
+      const centerMenuBackground = document.getElementById(
+        "center-menu-background"
+      );
+      const centerMenuDownload = document.getElementById(
+        "center-menu-download"
+      );
+
+      const downloadItem = document.querySelector(".download-item");
+      const backgroundSquare = document.getElementById("background-square");
+      const image2 = document.getElementById("image2");
+      const image3 = document.getElementById("image3");
+      const image4 = document.getElementById("image4");
+      const image5 = document.getElementById("image5");
+      const image6 = document.getElementById("image6");
+      const menu = document.getElementById("menu");
+      const toggleButton = document.getElementById("toggle-button");
+      const images = { image2, image3, image4, image5, image6 };
+      let currentImage = null;
+      let isMenuOpen = false;
+
+      function isInsidePlatform() {
+        return window.self !== window.top;
+      }
+
+      function updateDownloadVisibility() {
+        if (isInsidePlatform()) {
+          downloadItem.style.display = "none";
+        } else {
+          downloadItem.style.display = "flex";
+        }
+      }
+
+      updateDownloadVisibility();
+
+      const style = document.createElement("style");
+      style.textContent = `
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+  }
+  .main {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .img-wrap {
+      position: relative;
+      width: 100%; 
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  #background-square {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ff5500;
+      z-index: 0;
+      display: block;
+  }
+  img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 10;
+  }
+  .menu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 11;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+  }
+  .toggle-button {
+      background-color: transparent;
+      color: black;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+  }
+  .bar {
+      width: 20px;
+      height: 3px;
+      background-color: black;
+      margin: 3px;
+      border-radius: 2px;
+  }
+  .modal {
+      background : rgba(0,0,0,0.6);
+      image-rendering: pixelated;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      display: none;
+      padding: 10px;
+      background-size: contain;
+      overflow: auto;
+      
+  }
+  .modal-container {
+    height : 100%;
+    padding : 10px;
+    position : relative;
+  }
+  .modal.active {
+      display: block;
+  }
+  .modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #141414, #141414);
+      margin: auto;
+      z-index: 1000;
+      border-radius : 10px;
+      height : 70px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow : 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+  }
+
+  .stickers-modal-content {
+      max-width: 300px !important;
+  }
+  .color-modal-content {
+      max-width: 300px !important;
+  }
+  img.nft-logo {
+    width: 65px;
+    height: 65px;
+    position : relative;
+  }
+  div.close-button {
+    margin-right: auto;
+    transform: rotate(90deg);
+    cursor: pointer;
+    opacity: 0.5;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    color : white;
+    left: auto;
+    right: 30px;
+  }
+  .stickers-button-group {
+    display: flex;
+    gap : 4px;
+    align-items: center;
+    width : 100%;
+    padding-left : 5px;
+    padding-right : 5px;
+  }
+
+  .color-button-group {
+    display: flex;
+    gap : 4px;
+    align-items: center;
+    width : 100%;
+    padding-left : 5px;
+    padding-right : 5px;
+  }
+  .button-group {
+      display: flex;
+      align-items: center;
+      width : 210px;
+  }
+  .menu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width : 70px;
+      position : relative;
+  }
+
+  .stickers-menu-item {
+      width : 12%;
+      position : relative;
+  }
+
+  .color-menu-item {
+      width : 12%;
+      position : relative;
+  }
+  
+  .modal-button.active .nft-icon {
+    transform: translateY(-32px);
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+
+ 
+  .sticker-modal-button.active .stickers-nft-icon {
+    transform: translateY(-27px);
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+
+  .color-modal-button.active {
+    transform: translateY(-25px);
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+
+  .orange-color {
+    width : 32px;
+    height : 32px;
+    background-color: #ff5500;
+    border-radius: 50%;
+  }
+
+  .red-color {
+    width : 32px;
+    height : 32px;
+    background-color: #f50000;
+    border-radius: 50%;
+  }
+
+  .gray-color {
+    width : 32px;
+    height : 32px;
+    background-color: #ededed;
+    border-radius: 50%;
+  }
+
+  .pink-color {
+    width : 32px;
+    height : 32px;
+    background-color: #ff3cae;
+    border-radius: 50%;
+  }
+
+  .yellow-color {
+    width : 32px;
+    height : 32px;
+    background-color: #ffD400;
+    border-radius: 50%;
+  }    
+
+  .blue-color {
+    width : 32px;
+    height : 32px;
+    background-color: #6089ff;
+    border-radius: 50%;
+  }
+  
+  .green-color {
+    width : 32px;
+    height : 32px;
+    background-color: #00a900;
+    border-radius: 50%;
+  }
+  
+  .black-color {
+    width : 32px;
+    height : 32px;
+    background-color: #464b4b;
+    border-radius: 50%;
+  }
+
+  /* Ensure the default state has no transformation */
+  .nft-icon {
+      transition: transform 0.3s ease;
+      z-index : 12;
+      position : absolute;
+  }
+
+  .stickers-nft-icon {
+      width : 32px !important;
+      height :32px !important;
+      transition: transform 0.3s ease;
+      z-index : 12;
+      position : absolute;
+  }
+
+  .menu-item .text {
+    position : absolute;
+    color : #fff;
+    font-weight : 400;
+    font-size : 0.75em;
+    letter-spacing : 0.05em;
+    opacity : 0;
+    transform : translateY(20px);
+    transition : 0.5s;
+    top : 22px;
+  }
+
+  .modal-button.active ~ .text {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+
+  .sticker-modal-button.active ~ p {
+    transform: translateY(-16px);
+  }
+
+  .color-modal-button.active ~ p {
+    transform: translateY(-8px);
+  } 
+  
+  .indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, #141414, #141414);
+    border: 6px solid #595959f7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    z-index : -1;
+  }
+
+  #sticker_indicator {
+    top: -34.5%;
+    width: 46px;
+    height: 46px;
+    left : -2px;
+  }
+
+  #color_indicator {
+    top: -31.5%;
+    width: 46px;
+    height: 46px;
+    left : -2px;
+  }
+
+  .indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+  }
+  .indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+  }
+  .modal-button,
+  .sticker-modal-button,
+  .color-modal-button {
+      background-color: transparent;
+      border: none;
+      padding: 25px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .sticker-modal-button
+  {
+    padding: 16px !important;  
+  }
+
+  .modal-button:hover,
+  sticker-modal-button:hover,
+  .color-modal-button:hover {
+      background-color: rgba(0, 255, 204, 0.1);
+  }
+  .button-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+  }
+  .menu-item p {
+      margin-top: 0px;
+      font-size: 14px;
+      color: #ffff;
+  }
+
+  .stickers-menu-item p {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #ffff;
+      text-align : center;
+  }
+
+  .color-menu-item p {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #ffff;
+      text-align : center;
+  }
+  .center-menu {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background : linear-gradient(45deg, #141414, #141414);
+      padding: 40px;
+      border-radius: 10px;
+      z-index: 4;
+      box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+      width: 300px;
+      height: 210px;
+      justify-content: center;
+      align-items: center;
+  }
+  .center-menu.active {
+      display: flex;
+  }
+  .center-menu-content {
+      text-align: center;
+      color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc;
+  }
+  .color-modal-button:hover {
+      background-color: rgba(0, 255, 204, 0.1);
+      box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
+  }
+  #canvas-size {
+      width: 100px;
+      font-size: 16px;
+      padding: 10px;
+      text-align: center;
+      border: 2px solid #00ffcc;
+      border-radius: 5px;
+      color: #00ffcc;
+      background-color: transparent;
+      margin-bottom: 20px;
+  }
+  #confirm-download {
+      margin-top: 20px;
+      color: #00ffcc;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2px solid #00ffcc;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      background : rgba(0, 255, 204, 0.1);
+  }
+  #confirm-download:hover {
+    background-color: rgb(0 0 0 / 10%);
+  }
+
+  @media only screen and (max-width: 768px) {
+      .modal-content {
+          width : 100%;
+      }
+      .download-item {
+        display : none !important;
+      }
+      .basic-group {
+        width : 140px;
+      }
+  }
+`;
+
+      const buttons = document.querySelectorAll(".modal-button");
+      const stickerButtons = document.querySelectorAll(".sticker-modal-button");
+      const colorButtons = document.querySelectorAll(".color-modal-button");
+
+      const indicator = document.querySelector("#indicator");
+      const s_indicator = document.querySelector("#sticker_indicator");
+      const c_indicator = document.querySelector("#color_indicator");
+
+      const menus = document.querySelectorAll(".menu-item");
+
+      buttons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+          indicator.style.transform = `translateX(calc(70px * ${0}))`;
+          // Remove 'active' class from all buttons
+          buttons.forEach((btn) => btn.classList.remove("active"));
+          // Add 'active' class to the clicked button
+          this.classList.add("active");
+          // Move the indicator
+          indicator.style.transform = `translateX(calc(70px * ${index}))`;
+          const buttonId = this.id;
+          setTimeout(() => {
+            handleSelectedMenu(buttonId);
+          }, 500);
+        });
+      });
+
+      stickerButtons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+          s_indicator.style.transform = `translateX(calc(36.8 px * ${0}))`;
+          // Remove 'active' class from all buttons
+          stickerButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add 'active' class to the clicked button
+          this.classList.add("active");
+          // Move the indicator
+          s_indicator.style.transform = `translateX(calc(36.85px * ${index}))`;
+          // Get the ID of the clicked button
+          const buttonId = this.id;
+          setTimeout(() => {
+            handleSelectedMenu(buttonId);
+          }, 500);
+        });
+      });
+
+      colorButtons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+          c_indicator.style.transform = `translateX(calc(37px * ${0}))`;
+          // Remove 'active' class from all buttons
+          colorButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add 'active' class to the clicked button
+          this.classList.add("active");
+          // Move the indicator
+          c_indicator.style.transform = `translateX(calc(37px * ${index}))`;
+          // Get the ID of the clicked button
+          const buttonId = this.id;
+          setTimeout(() => {
+            handleSelectedMenu(buttonId);
+          }, 800);
+        });
+      });
+
+      function handleSelectedMenu(buttonId) {
+        switch (buttonId) {
+          case "show-stickers":
+            // Action for button1
+            console.log("Button 1 clicked");
+            centerMenuStickers.classList.add("active");
+            modal.classList.remove("active");
+            break;
+          case "show-background":
+            // Action for button2
+            console.log("Button 2 clicked");
+            centerMenuBackground.classList.add("active");
+            modal.classList.remove("active");
+            break;
+          case "show-download":
+            // Action for button3
+            console.log("Button 3 clicked");
+            centerMenuDownload.style.display = "block";
+            modal.classList.remove("active");
+            break;
+          case "sticker1":
+            toggleImage("image2");
+            break;
+          case "sticker2":
+            toggleImage("image3");
+            break;
+          case "sticker3":
+            toggleImage("image4");
+            break;
+          case "sticker4":
+            toggleImage("image4");
+            break;
+          case "sticker5":
+            toggleImage("image4");
+            break;
+          case "sticker6":
+            toggleImage("image6");
+            break;
+          case "sticker7":
+            toggleImage("image5");
+            break;
+          case "sticker8":
+            toggleImage("image2");
+            break;
+          case "bg-orange":
+            changeBackgroundColor("#ff5500");
+            break;
+          case "bg-red":
+            changeBackgroundColor("#f50000");
+            break;
+          case "bg-gray":
+            changeBackgroundColor("#ededed");
+            break;
+          case "bg-pink":
+            changeBackgroundColor("#ff3cae");
+            break;
+          case "bg-yellow":
+            changeBackgroundColor("#ffD400");
+            break;
+          case "bg-blue":
+            changeBackgroundColor("#6089ff");
+            break;
+          case "bg-green":
+            changeBackgroundColor("#00a900");
+            break;
+          case "bg-black":
+            changeBackgroundColor("#464b4b");
+            break;
+          default:
+            // Action for any other cases (optional)
+            console.log("Unknown button clicked");
+            break;
+        }
+      }
+
+      document.head.appendChild(style);
+
+      toggleButton.addEventListener("mouseenter", function () {
+        if (!isMenuOpen) {
+          menu.classList.add("active");
+        }
+      });
+
+      menu.addEventListener("mouseleave", function () {
+        if (!isMenuOpen) {
+          menu.classList.remove("active");
+        }
+      });
+
+      toggleButton.addEventListener("click", function () {
+        if (!isMenuOpen) {
+          modal.classList.add("active");
+          toggleButton.style.pointerEvents = "none";
+          isMenuOpen = true;
+        }
+      });
+
+      function toggleImage(imageId) {
+        if (currentImage === imageId) {
+          images[currentImage].style.display = "none";
+          currentImage = null;
+        } else {
+          if (currentImage) {
+            images[currentImage].style.display = "none";
+          }
+          images[imageId].style.display = "block";
+          currentImage = imageId;
+        }
+
+        centerMenuStickers.classList.remove("active");
+        isMenuOpen = false;
+        toggleButton.style.pointerEvents = "auto";
+      }
+
+      function changeBackgroundColor(color) {
+        backgroundSquare.style.backgroundColor = color;
+        backgroundSquare.style.display = "block";
+        centerMenuBackground.classList.remove("active");
+        isMenuOpen = false;
+        toggleButton.style.pointerEvents = "auto";
+      }
+
+      document
+        .getElementById("confirm-download")
+        .addEventListener("click", function () {
+          const size = parseInt(document.getElementById("canvas-size").value);
+          if (size >= 2000 && size <= 10000) {
+            downloadImage(size);
+          } else {
+            alert("Escolha um tamanho entre 2000x2000 e 10000x10000.");
+          }
+        });
+
+      function downloadImage(size) {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const imgWrap = document.querySelector(".img-wrap");
+
+        canvas.width = size;
+        canvas.height = size;
+
+        // Define a cor de fundo com base no background atual
+        ctx.fillStyle = getComputedStyle(
+          document.getElementById("background-square")
+        ).backgroundColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Seleciona todas as imagens do menu interativo
+        const images = imgWrap.querySelectorAll("img");
+
+        // Incluir as imagens adicionais adicionadas via HTML
+        const img1 = document.getElementById("img1");
+        const img2 = document.getElementById("img2");
+        const img3 = document.getElementById("img3");
+        const img4 = document.getElementById("img4");
+        const img5 = document.getElementById("img5");
+        const img6 = document.getElementById("img6");
+        const img7 = document.getElementById("img7");
+
+        // Desenhar a imagem 1, se estiver visível
+        if (img1 && img1.style.display !== "none") {
+          ctx.drawImage(img1, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Desenhar a imagem 2, se estiver visível
+        if (img2 && img2.style.display !== "none") {
+          ctx.drawImage(img2, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Desenhar a imagem 3, se estiver visível
+        if (img3 && img3.style.display !== "none") {
+          ctx.drawImage(img3, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Desenhar a imagem 4, se estiver visível
+        if (img4 && img4.style.display !== "none") {
+          ctx.drawImage(img4, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Desenhar a imagem 5, se estiver visível
+        if (img5 && img5.style.display !== "none") {
+          ctx.drawImage(img5, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Desenhar a imagem 6, se estiver visível
+        if (img6 && img6.style.display !== "none") {
+          ctx.drawImage(img6, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Desenhar a imagem 7, se estiver visível
+        if (img7 && img7.style.display !== "none") {
+          ctx.drawImage(img7, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Desenhar outras imagens do menu interativo
+        images.forEach((img) => {
+          if (img.style.display !== "none") {
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          }
+        });
+
+        // Baixar a imagem
+        const link = document.createElement("a");
+        link.download = `custom-image-${size}x${size}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+
+        // Fechar o menu de download
+        centerMenuDownload.style.display = "none";
+        toggleButton.style.pointerEvents = "auto";
+        isMenuOpen = false;
+      }
+    }
+  </script>
+</html>
